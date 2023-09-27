@@ -25,5 +25,3 @@ sunshine.AddPlayer(jake);
 sunshine.DisplayRoster();
 
 Match match1 = new Match(cardinals, sunshine);
-
-match1.DisplayMatch();
