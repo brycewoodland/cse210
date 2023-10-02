@@ -11,12 +11,29 @@ public class Prompt
         "What was I grateful for today?",
         "What was the most surprising thing that happened today?",
         "What is a current problem or challenge I am facing?"
-        }
+        };
 
         private List<string> _journalPrompt = new List<string>(_prompt);
 
-        private Prompt()
+        public Prompt()
         {
             
+        }
+
+        public void Display()
+        {
+          var random = new Random();
+          int index = random.Next(_journalPrompt.Count);
+          string journalPrompt = _journalPrompt[index];
+          Console.WriteLine($"{_journalPrompt}");
+        }
+
+        public string GetPrompt()
+        {
+          var random = new Random();
+          int index = random.Next(_journalPrompt.Count);
+          string journalPrompt = _journalPrompt[index];
+
+          return journalPrompt;
         }
 }
