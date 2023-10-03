@@ -19,15 +19,7 @@ public class Prompt
         {
             
         }
-
-        public void Display()
-        {
-          var random = new Random();
-          int index = random.Next(_journalPrompt.Count);
-          string journalPrompt = _journalPrompt[index];
-          Console.WriteLine($"{_journalPrompt}");
-        }
-
+        
         public string GetPrompt()
         {
           var random = new Random();

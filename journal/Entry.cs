@@ -1,20 +1,22 @@
+using System.Dynamic;
+
 public class Entry 
 {
-    private string _dateTime = " ";
-    private string _journalPrompt = " ";
-    private string _journalEntry = " ";
+    private string _date = { get; };
+    private string _journalPrompt = { get; };
+    private string _journalEntry = { get; };
 
-    public Entry(string journalPrompt, string journalEntry)
+    public Entry(string date, string prompt, string journalEntry)
     {
-        _journalPrompt = journalPrompt;
+        _date = date;
+        _prompt = prompt;
         _journalEntry = journalEntry;
-        _dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
     }
 
     public void Display()
     {
-        Console.WriteLine($"Date: {_dateTime}");
-        Console.WriteLine($"Prompt: {_journalPrompt}");
+        Console.WriteLine($"Date: {_date}");
+        Console.WriteLine($"Prompt: {_prompt}");
         Console.WriteLine($"Entry: {_journalEntry}");
     }
 }
