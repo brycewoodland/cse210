@@ -1,9 +1,10 @@
 public class Journal 
 {
-    public string List<Entry> _journal = new List<Entry>();
+    private string List<Entry> _entries = new List<Entry>();
 
-    public Journal()
+    public void AddEntry(string prompt, string journalEntry)
     {
-
+        Entry entry = new Entry(prompt, journalEntry);
+        entries.Add(entry);
     }
 }

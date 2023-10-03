@@ -8,6 +8,7 @@ public class Entry
     {
         _journalPrompt = journalPrompt;
         _journalEntry = journalEntry;
+        _dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
     }
 
     public void Display()
