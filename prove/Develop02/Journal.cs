@@ -1,35 +1,17 @@
 public class Journal 
 {
-    private List<Entry> entries = new List<Entry>();
-    private string prompt = "Write a journal entry: ";
+    private List<Entry> _journal = new List<Entry>();
 
-    public string GetPrompt()
+    public Journal()
     {
-        return prompt;
+
     }
 
-    public void AddEntry(string prompt, string response)
+    public void Display()
     {
-        Entry entry = new Entry(prompt, response);
-        entries.Add(entry);
-    }
-
-    public void DisplayEntries()
-    {
-        foreach (var entry in entries)
+        foreach (Entry journalEntry in _journal)
         {
-            Console.WriteLine(entry);
+            journalEntry.Display();
         }
     }
-
-    public void SaveToFile(string fileName)
-    {
-
-    }
-
-    public void LoadFromFile(string fileName)
-    {
-
-    }
-
 }

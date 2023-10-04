@@ -7,6 +7,7 @@ class Program
     static void Main(string[] args)
     {
         Journal journal = new Journal();
+        Prompt prompt = new Prompt();
         int choice = 0;
 
         while (choice != 5)
@@ -18,33 +19,28 @@ class Program
                 Console.WriteLine("5. Exit");
                 Console.WriteLine("Select an option: ");
 
-                switch (choice)
+                if (int.TryParse(Console.ReadLine(), out choice))
                 {
-                    case 1:
-                        string prompt = journal.GetPrompt();
-                        Console.WriteLine("Enter your journal entry:");
-                        string entryText = Console.ReadLine();
-                        journal.AddEntry(prompt, entryText);
-                        break;
-                    case 2:
-                        journal.DisplayEntries();
-                        break;
-                    case 3:
-                        Console.Write("Enter a filename to save the journal: ");
-                        string FileName = Console.ReadLine();
-                        journal.SaveToFile(fileName);
-                        break;
-                    case 4:
-                        Console.Write("Enter a filename to load the journal: ");
-                        FileName = Console.ReadLine();
-                        journal.LoadFromFile(fileName);
-                    case 5:
-                        Console.WriteLine("Goodbye!");
-                        break;
-                    default:
-                        Console.WriteLine("Invalid option. Please choose a valid option.");
-                        break;                
+                    switch (choice)
+                    {
+                        case 1:
+                            string jp = prompt.GetPrompt();
+                            Console.WriteLine("Enter your journal entry:");
+                            string entryText = Console.ReadLine();
+                            break;
+                        case 2:
+                            journal.Display();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option. Please choose a valid option.");
+                            break;                
+                    }
                 }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Please enter a number.");
+                }
+
             }
     }
 }
