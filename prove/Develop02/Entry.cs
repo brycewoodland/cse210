@@ -2,13 +2,13 @@ using System.Dynamic;
 
 public class Entry 
 {
-    private string _date = { get; };
-    private string _journalPrompt = { get; };
-    private string _journalEntry = { get; };
+    private string _date = " ";
+    private string _prompt = " ";
+    private string _journalEntry = " ";
 
-    public Entry(string date, string prompt, string journalEntry)
+    public Entry(string prompt, string journalEntry)
     {
-        _date = date;
+        _date = DateTime.Now.ToString("MM/dd/yyyy");
         _prompt = prompt;
         _journalEntry = journalEntry;
     }

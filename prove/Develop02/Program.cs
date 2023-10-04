@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 class Program
 {
@@ -27,7 +29,7 @@ class Program
                         journal.AddEntry(prompt, entryText);
                         break;
                     case 2:
-                        journal.Display();
+                        journal.DisplayEntries();
                         break;
                     case 3:
                         Console.Write("Enter a filename to save the journal: ");
@@ -46,5 +48,5 @@ class Program
                         break;                
                 }
             }
-        }
     }
+}
