@@ -2,13 +2,14 @@ using System.Dynamic;
 
 public class Entry 
 {
-    private string _date = " ";
-    private string _prompt = " ";
-    private string _journalEntry = " ";
+    private string _date;
+    private string _prompt;
+    private string _journalEntry;
 
-    public Entry()
+    public Entry(string jp, string userEntry)
     {
-        
+        _prompt = jp;
+        _journalEntry = userEntry;
     }
 
     public void Display()
