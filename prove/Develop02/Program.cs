@@ -18,8 +18,6 @@ class Program
                 Console.WriteLine("5. Exit");
                 Console.WriteLine("Select an option: ");
 
-                string action = Console.ReadLine();
-
                 switch (choice)
                 {
                     case 1:

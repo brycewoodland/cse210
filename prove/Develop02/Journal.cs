@@ -1,6 +1,12 @@
 public class Journal 
 {
     private List<Entry> entries = new List<Entry>();
+    private string prompt = "Write a journal entry: ";
+
+    public string GetPrompt()
+    {
+        return prompt;
+    }
 
     public void AddEntry(string prompt, string response)
     {
@@ -25,4 +31,5 @@ public class Journal
     {
 
     }
+
 }
