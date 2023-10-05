@@ -34,6 +34,18 @@ while (choice != 5)
             case 2:
                 bryce.Display();
                 break;
+            case 3:
+                Console.WriteLine("Enter a file name to save the journal: ");
+                string fileName = Console.ReadLine();
+                bryce.SaveJournalFile(fileName);
+                Console.WriteLine("Journal saved to the file.");
+                break;
+            case 4:
+                Console.WriteLine("Enter a file name to load to the journal:");
+                string loadFileName = Console.ReadLine();
+                bryce.LoadJournalFromFile(loadFileName);
+                Console.WriteLine("Journal loaded from the file");
+                break;
             case 5:
                 Console.WriteLine("Goodbye!");
                 break;
