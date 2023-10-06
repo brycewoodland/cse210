@@ -2,15 +2,20 @@ using System.Dynamic;
 
 public class Entry 
 {
-    private string _date;
-    private string _prompt;
-    private string _journalEntry;
+    public string _date;
+    public string _prompt;
+    public string _journalEntry;
 
     public Entry(string jp, string userEntry)
     {
         _date = DateTime.Now.ToString();
         _prompt = jp;
         _journalEntry = userEntry;
+    }
+
+    public void SetDate(string date)
+    {
+        _date = date;
     }
 
     public void Display()

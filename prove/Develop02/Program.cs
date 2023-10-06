@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using System.IO;
 
 Journal bryce = new Journal();
 Prompt prompt = new Prompt();
@@ -20,6 +21,7 @@ while (choice != 5)
         switch (choice)
         {
             case 1:
+                Console.WriteLine();
                 string jp = prompt.GetPrompt();
                 Console.WriteLine(jp);
                 Console.Write("Enter your journal entry: ");
@@ -30,7 +32,6 @@ while (choice != 5)
             case 2:
                 Console.WriteLine();
                 bryce.Display();
-                Console.WriteLine();
                 break;
             case 3:
                 Console.Write("Enter a file name to save the journal: ");
@@ -39,10 +40,11 @@ while (choice != 5)
                 Console.WriteLine("Journal saved to the file.\n");
                 break;
             case 4:
-                Console.WriteLine("Enter a file name to load to the journal:");
-                string loadFileName = Console.ReadLine();
-                bryce.LoadJournalFromFile(loadFileName);
+                Console.Write("Enter a file name to load to the journal: ");
+                Console.WriteLine();
+                bryce.LoadJournalFromFile();
                 Console.WriteLine("Journal loaded from the file");
+                Console.WriteLine();
                 break;
             case 5:
                 Console.WriteLine("Goodbye!");
