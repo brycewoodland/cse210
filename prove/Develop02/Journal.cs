@@ -15,7 +15,7 @@ public class Journal
         {
              foreach (Entry userEntry in _journal)
              {
-                outputFile.WriteLine(userEntry.ToString());
+                outputFile.WriteLine($"{userEntry}");
              }
         }
     }
@@ -32,7 +32,7 @@ public class Journal
     {
         if (File.Exists(userFileName))
         {
-            string [] lines = File.ReadAllLines(userFileName);
+            string [] lines = System.IO.File.ReadAllLines(userFileName);
 
             foreach (string line in lines)
             {

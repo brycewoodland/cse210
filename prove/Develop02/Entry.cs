@@ -8,6 +8,7 @@ public class Entry
 
     public Entry(string jp, string userEntry)
     {
+        _date = DateTime.Now.ToString();
         _prompt = jp;
         _journalEntry = userEntry;
     }
