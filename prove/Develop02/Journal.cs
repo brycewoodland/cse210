@@ -23,7 +23,7 @@ public class Journal
         {
              foreach (Entry userEntry in _journal)
              {
-                outputFile.WriteLine($"Date: {userEntry._date} || Prompt: {userEntry._prompt} || Entry: {userEntry._journalEntry} ");
+                outputFile.WriteLine($"{userEntry._date} || {userEntry._prompt} || {userEntry._journalEntry} ");
              }
         }
     }
@@ -55,9 +55,7 @@ public class Journal
                 journalEntry.SetDate(date);
                 AddToJournal(journalEntry);
             }
-            Console.WriteLine("Journal loaded from the file.");
         }
-        
         else
         {
             Console.WriteLine("File not found. The journal could not be loaded");

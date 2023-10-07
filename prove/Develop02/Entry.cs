@@ -23,5 +23,6 @@ public class Entry
         Console.WriteLine($"Date: {_date}");
         Console.WriteLine($"Prompt: {_prompt}");
         Console.WriteLine($"Entry: {_journalEntry}");
+        Console.WriteLine();
     }
 }
