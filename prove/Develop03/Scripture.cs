@@ -12,10 +12,7 @@ public class Scripture {
 
     public void HideWords()
     {
-        foreach (Word word in _words)
-        {
-            word.Hide();
-        }
+        
     }
 
     public void CompletelyHidden()
