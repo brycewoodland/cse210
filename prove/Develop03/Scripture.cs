@@ -1,20 +1,25 @@
-public class Scripture {
-    Reference _reference = new Reference("John", "3", "16", "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.");
-    Word _word = new Word("word");
-    List<Word> _scripture = new List<Word>();
+using System.ComponentModel.DataAnnotations;
 
-    public Scripture(Word _word, Reference _reference)
+public class Scripture {
+    private Reference _reference;
+    private List<Word> _words;
+
+    public Scripture(string book, string chapter, string verse, string text)
     {
-        
+        _reference = new Reference(book, chapter, verse);
+        _words = new List<Word>();
     }
 
     public void HideWords()
     {
-
+        foreach (Word word in _words)
+        {
+            word.Hide();
+        }
     }
 
-    public void CheckVisible()
+    public void CompletelyHidden()
     {
-
+        
     }
 }
