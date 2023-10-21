@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 public class Scripture {
     private Reference _reference;
     private List<Word> _words;
-    private int _hiddenWordCount  = -1;
+    private int _hiddenWordCount  = 0;
 
     public Scripture(Reference reference, string text)
     {
@@ -38,39 +38,23 @@ public class Scripture {
     public void HideRandomWord()
     {
         Random random = new Random();
-        int remainingWords = _words.Count - _hiddenWordCount;
+        int remainingWords = _words.Count(w => !w.isHidden());
 
-        if (remainingWords == -1)
+        if (remainingWords > 0)
         {
-            return;
-        }
+            int randomIndex;
+            do
+            {
+                randomIndex = random.Next(_words.Count);
+            }
+            while (_words[randomIndex].isHidden());
 
-        int randomIndex;
-
-        do
-        {
-            randomIndex = random.Next(_words.Count);
-        }
-        while(_words[randomIndex].isHidden());
-
-        _words[randomIndex].Hide();
-        _hiddenWordCount++;
-
-        if (_hiddenWordCount == _words.Count)
-        {
-
+            _words[randomIndex].Hide();
         }
     }
 
     public bool CompletelyHidden()
     {
-         if (_hiddenWordCount == _words.Count())
-         {
-            return true;
-         }
-         else
-         {
-            return false;
-         }
+        return _words.All(w => w.isHidden());
     }
 }

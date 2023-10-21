@@ -10,13 +10,13 @@ class Program
         string text = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
         Scripture scrip = new Scripture(reference, text);
 
-        do
+        while (!scrip.CompletelyHidden())
         {
             scrip.DisplayScripture();
             Console.Write("Press Enter to hide random words or type 'quit' to finish: ");
             string input = Console.ReadLine();
 
-            if (input == "quit")
+            if (input == "quit") 
             {
                 break;
             }
@@ -25,6 +25,5 @@ class Program
                 scrip.HideRandomWord();
             }
         }
-        while (true);
     }
 }
