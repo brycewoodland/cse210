@@ -47,5 +47,6 @@ public class ReflectingActivity : Activity {
         StartingMessage();
         TimerAnimation();
         ShowRandomPrompt();
+        ClosingMessage();
     }
 }

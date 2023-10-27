@@ -30,7 +30,7 @@ class Program
                         break;
                     case 3:
                         ListingActivity la = new ListingActivity();
-                        la.StartingMessage();
+                        la.List();
                         break;
                     case 4:
                         Console.WriteLine("Goodbye");

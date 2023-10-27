@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 public class ListingActivity : Activity {
 
     private List<string> _prompts = new List<string>() 
@@ -21,11 +23,19 @@ public class ListingActivity : Activity {
 
     public void ShowRandomPrompt()
     {
+        Random random = new Random();
+        int randomIndex = random.Next(0, _prompts.Count);
+        string randomPrompt = _prompts[randomIndex];
 
+        Console.WriteLine($"{randomPrompt}");
     }
 
     public void List()
     {
-        
+        StartingMessage();
+        SetTime();
+        TimerAnimation();
+        ShowRandomPrompt();
+        ClosingMessage();
     }
 }
