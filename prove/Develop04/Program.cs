@@ -22,11 +22,11 @@ class Program
                 {
                     case 1: 
                         BreathingActivity ba = new BreathingActivity();
-                        ba.StartingMessage();
+                        ba.DeepBreathing();
                         break;
                     case 2:
                         ReflectingActivity ra = new ReflectingActivity();
-                        ra.StartingMessage();
+                        ra.Reflect();
                         break;
                     case 3:
                         ListingActivity la = new ListingActivity();

@@ -11,12 +11,27 @@ public class Activity {
 
     public void TimerAnimation()
     {
-        Console.WriteLine("+");
+            Console.Write("|");
 
-        Thread.Sleep(500);
+            Thread.Sleep(500);
 
-        Console.Write("\b \b");
-        Console.Write("-");
+            Console.Write("\b \b");
+            Console.Write("/");
+
+            Thread.Sleep(500);
+        
+            Console.Write("\b \b");
+            Console.Write("-");
+
+            Thread.Sleep(500);
+
+            Console.Write("\b \b");
+            Console.Write("\\");
+
+            Thread.Sleep(500);
+
+            Console.Write("\b \b");
+            Console.WriteLine();
     }
 
     public void ClosingMessage()
@@ -24,6 +39,7 @@ public class Activity {
         Console.WriteLine("Well done!!");
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_time} seconds of the {_name}");
+        Console.WriteLine();
     }
 
     public void StartingMessage()
@@ -32,11 +48,11 @@ public class Activity {
         Console.WriteLine($"Welcome to the {_name}");
         Console.WriteLine();
         Console.WriteLine($"{_description}");
-        Console.WriteLine();
     }
 
-    public void SetTime(int time)
+    public void SetTime()
     {
-        _time = time;
+        Console.Write("How long, in seconds, would you like for your session? ");
+        _time = int.Parse(Console.ReadLine());
     }
 }

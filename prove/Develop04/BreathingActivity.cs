@@ -8,5 +8,8 @@ public class BreathingActivity : Activity {
     public void DeepBreathing()
     {
         StartingMessage();
+        SetTime();
+        TimerAnimation();
+        ClosingMessage();
     }
 }
