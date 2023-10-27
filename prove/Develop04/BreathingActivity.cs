@@ -9,7 +9,7 @@ public class BreathingActivity : Activity {
     {
         StartingMessage();
         SetTime();
-        TimerAnimation();
+        GetReady();
         ClosingMessage();
     }
 }

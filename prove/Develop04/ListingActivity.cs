@@ -28,13 +28,14 @@ public class ListingActivity : Activity {
         string randomPrompt = _prompts[randomIndex];
 
         Console.WriteLine($"{randomPrompt}");
+        Console.WriteLine();
     }
 
     public void List()
     {
         StartingMessage();
         SetTime();
-        TimerAnimation();
+        GetReady();
         ShowRandomPrompt();
         ClosingMessage();
     }

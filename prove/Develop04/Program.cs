@@ -33,10 +33,12 @@ class Program
                         la.List();
                         break;
                     case 4:
+                        Console.WriteLine();
                         Console.WriteLine("Goodbye");
                         break;
                     default:
-                        Console.WriteLine("That was an invalid choice.");
+                        Console.WriteLine();
+                        Console.WriteLine("That was an invalid choice. Please try again.");
                         break;
                 }
             }
