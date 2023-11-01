@@ -27,12 +27,16 @@ public class ReflectingActivity : Activity {
 
     public void ShowRandomPrompt()
     {
+        Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine();
         Random random = new Random();
         int randomIndex = random.Next(0, _prompts.Count);
         string randomPrompt = _prompts[randomIndex];
 
         Console.WriteLine($"{randomPrompt}");
         Console.WriteLine();
+
+        Console.WriteLine("Now ponder on each of the following questions as they relate to this experience.");
     }
 
     public void ShowRandomQuestions()
@@ -55,11 +59,19 @@ public class ReflectingActivity : Activity {
         }
     }
 
+    public void Begin() 
+    {
+        Console.Write("You may begin in: ");
+        GetTime();
+        Console.Clear();
+    }
+
     public void Reflect()
     {
         StartingMessage();
         GetReady();
         ShowRandomPrompt();
+        Begin();
         ShowRandomQuestions();
         ClosingMessage();
     }

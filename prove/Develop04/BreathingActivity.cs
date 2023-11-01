@@ -5,11 +5,21 @@ public class BreathingActivity : Activity {
 
     }
 
+    public void Countdown()
+    {
+        Console.Write("Breathe in... ");
+        GetTime();
+        Console.WriteLine();
+        Console.Write("Breathe out... ");
+        GetTime();
+    }
+
     public void DeepBreathing()
     {
         StartingMessage();
         SetTime();
         GetReady();
+        Countdown();
         ClosingMessage();
     }
 }
