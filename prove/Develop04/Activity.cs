@@ -11,6 +11,7 @@ public class Activity {
 
     public void StartingMessage()
     {   
+        Console.Clear();
         Console.WriteLine();
         Console.WriteLine($"Welcome to the {_name}");
         Console.WriteLine();
