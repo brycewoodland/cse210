@@ -1,7 +1,7 @@
 public class Activity {
     private string _name;
     private string _description;
-    private int _time;
+    protected int _time;
 
     public Activity(string name, string description)
     {
@@ -29,25 +29,17 @@ public class Activity {
     {
         Console.Write("|");
 
-        Thread.Sleep(500);
+        for (int i =0; i < 5; i++)
+        {
+            Thread.Sleep(500);
+            Console.Write("\b/");
+            Thread.Sleep(500);
+            Console.Write("\b-");
+            Thread.Sleep(500);
+            Console.Write("\b\\");
+        }
 
-        Console.Write("\b \b");
-        Console.Write("/");
-
-        Thread.Sleep(500);
-        
-        Console.Write("\b \b");
-        Console.Write("-");
-
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-        Console.Write("\\");
-
-        Thread.Sleep(500);
-
-        Console.Write("\b \b");
-        Console.WriteLine();
+        Console.Write("\b \b\n");
     }
 
     public void GetReady()
@@ -55,6 +47,7 @@ public class Activity {
         Console.Clear();
         Console.WriteLine("Get Ready...");
         TimerAnimation();
+        Console.Clear();
     }
 
     public void GetTime()
@@ -90,5 +83,7 @@ public class Activity {
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_time} seconds of the {_name}");
         Console.WriteLine();
+        TimerAnimation();
+        Console.Clear();
     }
 }

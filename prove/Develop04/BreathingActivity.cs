@@ -5,13 +5,20 @@ public class BreathingActivity : Activity {
 
     }
 
-    public void Countdown()
+    private void Countdown(int seconds, string message)
     {
-        Console.Write("Breathe in... ");
-        GetTime();
+        Console.Write(message);
+        for (int i = seconds; i >= 1; i--)
+        {
+            Console.Write(i.ToString().PadLeft(2, ' '));
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(message.Length, Console.CursorTop);
+            if (i > 1)
+            {
+                Console.Write("");
+            }
+        }
         Console.WriteLine();
-        Console.Write("Breathe out... ");
-        GetTime();
     }
 
     public void DeepBreathing()
@@ -19,7 +26,15 @@ public class BreathingActivity : Activity {
         StartingMessage();
         SetTime();
         GetReady();
-        Countdown();
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_time);
+
+        while (DateTime.Now < futureTime)
+        {
+            Countdown(5, "Breathe in... ");
+            Countdown(5, "Breathe out... ");
+        }
+        Console.Clear();
         ClosingMessage();
     }
 }

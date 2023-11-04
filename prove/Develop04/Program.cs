@@ -9,6 +9,7 @@ class Program
 
         while (choice != 4)
         {
+            Console.Clear();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("1. Breathing Activity");
             Console.WriteLine("2. Reflecting Activity");
@@ -34,7 +35,7 @@ class Program
                         break;
                     case 4:
                         Console.WriteLine();
-                        Console.WriteLine("Goodbye");
+                        Console.WriteLine("Goodbye!");
                         break;
                     default:
                         Console.WriteLine();
