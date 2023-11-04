@@ -8,13 +8,13 @@ public class BreathingActivity : Activity {
     private void Countdown(int seconds, string message)
     {
         Console.Write(message);
-        for (int i = seconds; i >= 1; i--)
+        for (int i = seconds; i > 0; i--)
         {
-            Console.Write(i.ToString().PadLeft(2, ' '));
-            Thread.Sleep(1000);
-            Console.SetCursorPosition(message.Length, Console.CursorTop);
-            if (i > 1)
+            if (i > 0)
             {
+                Console.Write(i.ToString().PadLeft(2, ' '));
+                Thread.Sleep(1000);
+                Console.SetCursorPosition(message.Length, Console.CursorTop);
                 Console.Write("");
             }
         }
