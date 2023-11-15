@@ -1,6 +1,4 @@
 public class SimpleGoal : Goal {
-    
-    private bool _completed;
 
     public SimpleGoal(string title, string description) 
     {
@@ -20,6 +18,6 @@ public class SimpleGoal : Goal {
 
     public override void DisplayGoal()
     {
-        base.DisplayGoal();
+        Console.WriteLine($"[{(_completed ? "X" : " ")}] {_title} ({_description})");
     }
 }

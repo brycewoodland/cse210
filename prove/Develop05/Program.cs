@@ -26,7 +26,7 @@ class Program
                     Console.WriteLine("\nThe types of Goals are:");
                     Console.WriteLine("1. Simple Goal");
                     Console.WriteLine("2. Eternal Goal");
-                    Console.WriteLine("3. Checklist Goal");
+                    Console.WriteLine("3. Checklist Goal\n");
                     Console.Write("Which type of goal would you like to create? ");
                     string goalType = Console.ReadLine();
 
@@ -40,6 +40,7 @@ class Program
                             SimpleGoal sg = new SimpleGoal(simpleName, simpleDescrip);
                             Console.WriteLine();
                             sg.DisplayGoal();
+                            Console.WriteLine();                            
                             break;
                         case "2":
                             Console.Write("What is the name of your goal? ");
@@ -49,6 +50,7 @@ class Program
                             EternalGoal eg = new EternalGoal(eternalName, eternalDescrip);
                             Console.WriteLine();
                             eg.DisplayGoal();
+                            Console.WriteLine();                            
                             break;
                         case "3":
                             Console.Write("What is the name of your goal? ");
@@ -58,6 +60,7 @@ class Program
                             ChecklistGoal cg = new ChecklistGoal(checklistName, checklistDescrip);
                             Console.WriteLine();
                             cg.DisplayGoal();
+                            Console.WriteLine();                           
                             break;
                         default:
                             Console.WriteLine("That was an invalid choice. Please try again.");

@@ -20,9 +20,9 @@ public class ChecklistGoal : Goal {
         base.CompleteGoal();
     }
 
-    public override void AddPoints()
+    public override void AddPoints(int points)
     {
-        base.AddPoints();
+        base.AddPoints(points);
     }
 
     public override void DisplayGoal()
