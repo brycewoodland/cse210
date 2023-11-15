@@ -69,9 +69,9 @@ public class Goal {
        Console.WriteLine($"{index + 1}. [{(_completed ? "X" : " ")}] {_title} ({_description})");
     }
 
-    public virtual void CompleteGoal()
+    public virtual bool CompleteGoal()
     {
-        _completed = true;
+        return true;
     }
 
     public virtual void StringifyGoal()

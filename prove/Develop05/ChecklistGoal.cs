@@ -19,6 +19,16 @@ public class ChecklistGoal : Goal {
     public override void CreateChecklistGoal()
     {
         CreateGoal();
+
+        Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+        string targetReps = Console.ReadLine();
+        _targetReps = Convert.ToInt32(targetReps);
+
+        Console.Write("What is the bonus for accomplishing it that many times? ");
+        string bonusPoints = Console.ReadLine();
+        _completePoints = Convert.ToInt32(bonusPoints);
+
+        _timesDone = 0;
     }
 
     public override void StringifyGoal()
@@ -26,9 +36,16 @@ public class ChecklistGoal : Goal {
         base.StringifyGoal();
     }
 
-    public override void CompleteGoal()
+    public override bool CompleteGoal()
     {
-        base.CompleteGoal();
+        if (_timesDone >= _targetReps)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public override void AddPoints(int points)

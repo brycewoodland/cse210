@@ -22,9 +22,9 @@ public class SimpleGoal : Goal {
         base.StringifyGoal();
     }
 
-    public override void CompleteGoal()
+    public override bool CompleteGoal()
     {
-        base.CompleteGoal();
+        return true;
     }
 
     public override void DisplayGoal(int index)
