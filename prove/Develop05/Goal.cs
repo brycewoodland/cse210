@@ -7,10 +7,41 @@ public class Goal {
 
     public Goal()
     {
-        _title = "";
-        _description = "";
-        _points = 0;
+
+    }
+
+    public Goal(string title, string description, int points)
+    {
+        _title = title;
+        _description = description;
+        _points = points;
         _completed = false;
+    }
+
+    protected void CreateGoal()
+    {
+        Console.Write("What is the name of your goal? ");
+        _title = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        _description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        _points = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine();
+    }
+
+    public virtual void CreateSimpleGoal()
+    {
+
+    }
+
+    public virtual void CreateEternalGoal()
+    {
+
+    }
+
+    public virtual void CreateChecklistGoal()
+    {
+
     }
 
     public void AddTitle(string title)
@@ -25,13 +56,17 @@ public class Goal {
 
     public virtual void AddPoints(int points)
     {
-        _points += points;
+        _points = points;
     }
 
-    public virtual void DisplayGoal()
+    public void DisplayPoints()
     {
-        Console.WriteLine($"Goal Name: {_title}");
-        Console.WriteLine($"Goal Description: {_description}");
+        Console.WriteLine($"You have {_points} points.");
+    }
+
+    public virtual void DisplayGoal(int index)
+    {
+       Console.WriteLine($"{index + 1}. [{(_completed ? "X" : " ")}] {_title} ({_description})");
     }
 
     public virtual void CompleteGoal()

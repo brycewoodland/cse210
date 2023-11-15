@@ -1,10 +1,12 @@
 using System;
+using System.Data.SqlTypes;
 
 class Program
 {
     
     static void Main(string[] args)
     {
+        GoalTracker goalTracker = new GoalTracker();
         int menuChoice = 0;
 
         while (menuChoice != 6)
@@ -32,35 +34,20 @@ class Program
 
                     switch (goalType) 
                     {
-                        case "1":
-                            Console.Write("What is the name of your goal? ");
-                            string simpleName = Console.ReadLine();
-                            Console.Write("What is a short description of it? ");
-                            string simpleDescrip = Console.ReadLine();
-                            SimpleGoal sg = new SimpleGoal(simpleName, simpleDescrip);
-                            Console.WriteLine();
-                            sg.DisplayGoal();
-                            Console.WriteLine();                            
+                        case "1": 
+                            SimpleGoal sg = new SimpleGoal(); 
+                            sg.CreateSimpleGoal();
+                            goalTracker.AddGoal(sg);
                             break;
                         case "2":
-                            Console.Write("What is the name of your goal? ");
-                            string eternalName = Console.ReadLine();
-                            Console.Write("What is a short description of it? ");
-                            string eternalDescrip = Console.ReadLine();
-                            EternalGoal eg = new EternalGoal(eternalName, eternalDescrip);
-                            Console.WriteLine();
-                            eg.DisplayGoal();
-                            Console.WriteLine();                            
+                            EternalGoal eg = new EternalGoal();  
+                            eg.CreateEternalGoal();
+                            goalTracker.AddGoal(eg);
                             break;
                         case "3":
-                            Console.Write("What is the name of your goal? ");
-                            string checklistName = Console.ReadLine();
-                            Console.Write("What is a short description of it? ");
-                            string checklistDescrip = Console.ReadLine();
-                            ChecklistGoal cg = new ChecklistGoal(checklistName, checklistDescrip);
-                            Console.WriteLine();
-                            cg.DisplayGoal();
-                            Console.WriteLine();                           
+                            ChecklistGoal cg = new ChecklistGoal();
+                            cg.CreateChecklistGoal();
+                            goalTracker.AddGoal(cg);
                             break;
                         default:
                             Console.WriteLine("That was an invalid choice. Please try again.");
@@ -68,6 +55,7 @@ class Program
                     }
                     break;
                 case 2:
+                    goalTracker.DisplayAllGoals();
                     break;
                 case 3:
                     break;

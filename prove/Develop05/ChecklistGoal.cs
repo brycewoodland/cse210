@@ -4,10 +4,21 @@ public class ChecklistGoal : Goal {
     private int _targetReps;
     private int _timesDone;
 
-    public ChecklistGoal(string title, string description)
+    public ChecklistGoal()
+    {
+
+    }
+
+    public ChecklistGoal(string title, string description, int points) : base(title, description, points)
     {
         AddTitle(title);
         AddDescription(description);
+        AddPoints(points);
+    }
+
+    public override void CreateChecklistGoal()
+    {
+        CreateGoal();
     }
 
     public override void StringifyGoal()
@@ -25,8 +36,8 @@ public class ChecklistGoal : Goal {
         base.AddPoints(points);
     }
 
-    public override void DisplayGoal()
+    public override void DisplayGoal(int index)
     {
-        base.DisplayGoal();
+        Console.WriteLine($"{index + 1}. [{(_completed ? "X" : " ")}] {_title} ({_description}) - Completed {_timesDone}/{_targetReps} times");
     }
 }

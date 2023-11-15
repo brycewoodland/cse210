@@ -1,9 +1,20 @@
 public class SimpleGoal : Goal {
 
-    public SimpleGoal(string title, string description) 
+    public SimpleGoal()
     {
-        AddTitle(title);
-        AddDescription(description);
+        
+    }
+
+    public SimpleGoal(string title, string description, int points) : base(title, description, points)
+    {
+        _title = title;
+        _description = description;
+        _points = points;
+    }
+
+    public override void CreateSimpleGoal()
+    {
+        CreateGoal();
     }
 
     public override void StringifyGoal()
@@ -16,8 +27,8 @@ public class SimpleGoal : Goal {
         base.CompleteGoal();
     }
 
-    public override void DisplayGoal()
+    public override void DisplayGoal(int index)
     {
-        Console.WriteLine($"[{(_completed ? "X" : " ")}] {_title} ({_description})");
+        base.DisplayGoal(index);
     }
 }
