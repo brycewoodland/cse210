@@ -2,6 +2,12 @@ public class SimpleGoal : Goal {
     
     private bool _completed;
 
+    public SimpleGoal(string title, string description) 
+    {
+        AddTitle(title);
+        AddDescription(description);
+    }
+
     public override void StringifyGoal()
     {
         base.StringifyGoal();
