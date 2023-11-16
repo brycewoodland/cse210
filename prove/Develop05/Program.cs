@@ -58,8 +58,10 @@ class Program
                     goalTracker.DisplayAllGoals();
                     break;
                 case 3:
+                    goalTracker.SaveGoals();
                     break;
                 case 4:
+                    goalTracker.LoadGoals();
                     break;
                 case 5:
                     break;

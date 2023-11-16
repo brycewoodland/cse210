@@ -78,4 +78,28 @@ public class Goal {
     {
         
     }
+    
+    public string Title
+    {
+        get { return _title; }
+        set { _title = value; }
+    }
+
+    public string Description
+    {
+        get { return _description; }
+        set { _description = value; }
+    }
+
+    public int Points
+    {
+        get { return _points; }
+        set { _points = value; }
+    }
+
+    public bool Completed
+    {
+        get { return _completed; }
+        set { _completed = value; }
+    }
 }
