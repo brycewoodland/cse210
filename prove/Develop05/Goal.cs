@@ -10,7 +10,7 @@ public class Goal {
 
     }
 
-    public Goal(string title, string description, int points)
+    public Goal(string title, string description, int points, bool complete)
     {
         _title = title;
         _description = description;
@@ -29,17 +29,7 @@ public class Goal {
         Console.WriteLine();
     }
 
-    public virtual void CreateSimpleGoal()
-    {
-
-    }
-
-    public virtual void CreateEternalGoal()
-    {
-
-    }
-
-    public virtual void CreateChecklistGoal()
+    public virtual void CreateChildGoal()
     {
 
     }
@@ -59,24 +49,37 @@ public class Goal {
         _points = points;
     }
 
-    public void DisplayPoints()
-    {
-        Console.WriteLine($"You have {_points} points.");
-    }
-
     public virtual void DisplayGoal(int index)
     {
        Console.WriteLine($"{index + 1}. [{(_completed ? "X" : " ")}] {_title} ({_description})");
     }
 
-    public virtual bool CompleteGoal()
+    public virtual bool IsComplete()
     {
-        return true;
+        return false;
+    }
+    
+    public virtual void RecordEvent()
+    {
+        Console.WriteLine($"Event recorded for goal: {_title}");
+
+        if (!Completed)
+        {
+            Completed = true;
+            Console.WriteLine($"Goal '{_title}' completed!");
+        }
+        else
+        {
+            Console.WriteLine($"Goal '{_title}' already completed.");
+        }
     }
 
     public virtual void StringifyGoal()
     {
-        
+        Console.WriteLine($"Goal: {_title}");
+        Console.WriteLine($"Description: {_description}");
+        Console.WriteLine($"Points: {_points}");
+        Console.WriteLine($"Status: {(IsComplete() ? "Completed" : "Not Completed")}");
     }
     
     public string Title

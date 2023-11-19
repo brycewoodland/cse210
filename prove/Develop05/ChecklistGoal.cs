@@ -1,22 +1,24 @@
 public class ChecklistGoal : Goal {
 
-    private int _completePoints;
-    private int _targetReps;
-    private int _timesDone;
+    protected int _completePoints;
+    protected internal int _targetReps;
+    protected internal int _timesDone;
 
     public ChecklistGoal()
     {
-
+       
     }
 
-    public ChecklistGoal(string title, string description, int points) : base(title, description, points)
+    public ChecklistGoal(string title, string description, int points, bool complete, int targetReps, int timesDone) : base(title, description, points, complete)
     {
-        AddTitle(title);
-        AddDescription(description);
-        AddPoints(points);
+       _title = title;
+       _description = description;
+       _points = points;
+       _targetReps = targetReps;
+       _timesDone = timesDone;
     }
 
-    public override void CreateChecklistGoal()
+    public override void CreateChildGoal()
     {
         CreateGoal();
 
@@ -36,7 +38,7 @@ public class ChecklistGoal : Goal {
         base.StringifyGoal();
     }
 
-    public override bool CompleteGoal()
+    public bool CompleteGoal()
     {
         if (_timesDone >= _targetReps)
         {
@@ -55,6 +57,42 @@ public class ChecklistGoal : Goal {
 
     public override void DisplayGoal(int index)
     {
-        Console.WriteLine($"{index + 1}. [{(_completed ? "X" : " ")}] {_title} ({_description}) - Completed {_timesDone}/{_targetReps} times");
+        Console.Write($"{index + 1}. [");
+
+        if (_completed)
+        {
+            Console.Write("X");
+        }
+        else
+        {
+            Console.Write(" ");
+        }
+
+        Console.WriteLine($"] {_title} ({_description}) - Completed {_timesDone}/{_targetReps} times ");
+    }
+
+    public override void RecordEvent()
+    {
+        Console.WriteLine($"Event recorded for goal: {_title}");
+
+        if (!_completed)
+        {
+            _timesDone++;
+
+            if (_timesDone >= _targetReps)
+            {
+                _completed = true;
+                Console.WriteLine($"Goal '{_title}' completed!");
+            }
+            else
+            {
+                Console.WriteLine($"Goal '{_title}' completed {_timesDone}/{_targetReps} times.");
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Goal '{_title}' already completed.");
+        }
     }
 }
+

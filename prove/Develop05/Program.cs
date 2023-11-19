@@ -11,6 +11,9 @@ class Program
 
         while (menuChoice != 6)
         {
+            goalTracker.DisplayPoints();
+            Console.WriteLine();
+
             Console.WriteLine("Menu Options");
             Console.WriteLine("1. Create New Goal");
             Console.WriteLine("2. List Goals");
@@ -36,17 +39,17 @@ class Program
                     {
                         case "1": 
                             SimpleGoal sg = new SimpleGoal(); 
-                            sg.CreateSimpleGoal();
+                            sg.CreateChildGoal();
                             goalTracker.AddGoal(sg);
                             break;
                         case "2":
                             EternalGoal eg = new EternalGoal();  
-                            eg.CreateEternalGoal();
+                            eg.CreateChildGoal();
                             goalTracker.AddGoal(eg);
                             break;
                         case "3":
                             ChecklistGoal cg = new ChecklistGoal();
-                            cg.CreateChecklistGoal();
+                            cg.CreateChildGoal();
                             goalTracker.AddGoal(cg);
                             break;
                         default:
@@ -58,17 +61,25 @@ class Program
                     goalTracker.DisplayAllGoals();
                     break;
                 case 3:
+                    Console.WriteLine();
                     goalTracker.SaveGoals();
+                    Console.WriteLine();
                     break;
                 case 4:
+                    Console.WriteLine();
                     goalTracker.LoadGoals();
+                    Console.WriteLine();
                     break;
                 case 5:
+                    Console.WriteLine();
+                    goalTracker.RecordEventForGoal();
                     break;
                 case 6:
+                    Console.WriteLine();
                     Console.WriteLine("Goodbye!");
                     break;
                 default:
+                    Console.WriteLine();
                     Console.WriteLine("That was an invalid choice. Please try again.");
                     break;
             }

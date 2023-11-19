@@ -5,14 +5,15 @@ public class SimpleGoal : Goal {
         
     }
 
-    public SimpleGoal(string title, string description, int points) : base(title, description, points)
+    public SimpleGoal(string title, string description, int points, bool complete) : base(title, description, points, complete)
     {
-        _title = title;
-        _description = description;
-        _points = points;
+        AddTitle(title);
+        AddDescription(description);
+        AddPoints(points);
+        _completed = complete;
     }
 
-    public override void CreateSimpleGoal()
+    public override void CreateChildGoal()
     {
         CreateGoal();
     }
@@ -22,13 +23,13 @@ public class SimpleGoal : Goal {
         base.StringifyGoal();
     }
 
-    public override bool CompleteGoal()
-    {
-        return true;
-    }
-
     public override void DisplayGoal(int index)
     {
         base.DisplayGoal(index);
+    }
+
+    public override void RecordEvent()
+    {
+        base.RecordEvent();
     }
 }

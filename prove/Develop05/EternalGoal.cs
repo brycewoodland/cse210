@@ -5,23 +5,33 @@ public class EternalGoal : Goal {
 
     public EternalGoal()
     {
-
+        
     }
-    
-    public EternalGoal(string title, string description, int points) : base(title, description, points)
+
+    public EternalGoal(string title, string description, int points)
     {
-        AddTitle(title);
-        AddDescription(description);
-        AddPoints(points);
+        _title = title;
+        _description = description;
+        _points = points;
     }
 
-    public override void CreateEternalGoal()
+    public override void CreateChildGoal()
     {
         CreateGoal();
+    }
+
+    public override void RecordEvent()
+    {
+        base.RecordEvent();
     }
 
     public override void StringifyGoal()
     {
 
+    }
+
+    public override bool IsComplete()
+    {
+        return true;
     }
 }

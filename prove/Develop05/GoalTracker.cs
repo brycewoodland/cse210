@@ -1,9 +1,16 @@
-using System.Security.Cryptography.X509Certificates;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
-public class GoalTracker {
-
+public class GoalTracker
+{
     private List<Goal> _goals = new List<Goal>();
-    private int _points;
+    private int _points = 0;
+
+    public List<Goal> Goals
+    {
+        get { return _goals; }
+    }
 
     public void SaveGoals()
     {
@@ -17,26 +24,44 @@ public class GoalTracker {
         Console.WriteLine("Goals saved successfully!");
     }
 
-    public void LoadGoals()
+public void LoadGoals()
+{
+    string filename = "goals.txt";
+    string[] lines = System.IO.File.ReadAllLines(filename);
+
+    foreach (string line in lines)
     {
-        string filename = "goals.txt";
-        string[] lines = System.IO.File.ReadAllLines(filename);
+        string[] parts = line.Split("|");
 
-        foreach (string line in lines)
+        string title = parts[0];
+        string description = parts[1];
+        string points = parts[2];
+        string complete = parts[3];
+
+        Goal goal = new Goal();
+        goal.AddTitle(title);
+        goal.AddDescription(description);
+        goal.AddPoints(Convert.ToInt16(points));
+
+        _goals.Add(goal);
+        }
+    }
+
+    public void RecordEventForGoal()
+    {
+        Console.WriteLine("\nWhich goal would you like to record an event for?");
+        DisplayAllGoals();
+
+        Console.Write("Enter the number of the goal: ");
+        if (int.TryParse(Console.ReadLine(), out int goalIndex) && goalIndex >= 1)
         {
-            string[] parts = line.Split("|");
-
-            string title = parts[0];
-            string description = parts[1];
-            string points = parts[2];
-            string complete = parts[3];
-
-            Goal goal = new Goal();
-            goal.AddTitle(title);
-            goal.AddDescription(description);
-            goal.AddPoints(Convert.ToInt16(points));
-
-            _goals.Add(goal);
+            Goal selectedGoal = _goals[goalIndex - 1];
+            selectedGoal.RecordEvent();
+            UpdatePoints();
+        }
+        else
+        {
+            Console.WriteLine("Invalid goal selection. Please try again.");
         }
     }
 
@@ -60,5 +85,23 @@ public class GoalTracker {
     public void AddGoal(Goal goal)
     {
         _goals.Add(goal);
+    }
+
+    public void DisplayPoints()
+    {
+        Console.WriteLine($"You have {_points} points.");
+    }
+
+    public void UpdatePoints()
+    {
+        _points = 0;
+
+        foreach (Goal goal in _goals)
+        {
+            if (goal.Completed)
+            {
+                _points += goal.Points;
+            }
+        }
     }
 }
