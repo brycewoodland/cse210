@@ -5,8 +5,28 @@ public class Address {
     private string _state;
     private string _country;
 
+    public Address(string street, string city, string state, string country)
+    {
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
+    }
+
     public bool USAOrNot()
     {
-        return false;
+        if (_country == "United States")
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
+    public string GetAddress() 
+    {
+        return $"{_street}\n{_city}, {_state}\n{_country}";
     }
 }

@@ -16,7 +16,11 @@ class Program
         v3.AddComment("User5", "The fact that she can't say it either after being so mad!");
         v3.AddComment("User6", "LOL! The bloopers have more views then the actual video.");
 
-        List<Video> _videos = new List<Video> {v1, v2, v3};
+        Video v4 = new Video("If Breaking Bad Was Made by Disney", "Buried Entertainment", 600);
+        v4.AddComment("User6", "I love how the teenager is the main character like Disney usually does.");
+        v4.AddComment("User7", "This isn't Breaking Bad this is Fixing Good.");
+
+        List<Video> _videos = new List<Video> {v1, v2, v3, v4};
 
         foreach (Video video in _videos)
         {

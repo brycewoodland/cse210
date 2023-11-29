@@ -7,7 +7,7 @@ public class Order {
 
    public void TotalPrice()
    {
-
+      
    }
 
    public void PackingLabel()
