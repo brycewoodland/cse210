@@ -13,4 +13,14 @@ public class Customer {
     {
         return _address.USAOrNot();
     }
+
+    public string GetCustomerName()
+    {
+        return _customerName;
+    }
+
+    public string GetAddress()
+    {
+        return _address.GetAddress();
+    }
 }
