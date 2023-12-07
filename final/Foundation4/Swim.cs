@@ -10,7 +10,7 @@ public class Swim: Activity {
 
     public override double GetDistance()
     {
-        return _numOfLaps * 50 / 1000 * 0.62;
+        return (_numOfLaps * 50) / (1000 * 0.62);
     }
 
     public override double GetSpeed()
